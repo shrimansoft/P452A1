@@ -6,7 +6,7 @@ def kronecker(i, j):
     return 1 if i == j else 0
 
 
-# Indexing approach for the 2D lattice
+# ----------------------------* Indexing approach for the 2D lattice *---------------------------
 def aMatrix(x: int, y: int, m=0.2, dim=20) -> float:
     i, j = x // dim, x % dim
     a, b = y // dim, y % dim
@@ -68,17 +68,20 @@ def aInverse(A, tol, N=400):
     return np.array(inv).T, iter, residue
 
 
-x, iterations, residue = aInverse(aMatrix, 1e-6)
-print("Matrix inverse: ")
-print(x)
+def main():
+    x, iterations, residue = aInverse(aMatrix, 1e-6)
+    print("Matrix inverse: ")
+    print(x)
 
-# Plot of convergence rate
-plt.plot(iterations, residue)
-plt.xlabel("Iterations")
-plt.ylabel("Residue")
-plt.show()
+    # Plot of convergence rate
+    plt.plot(iterations, residue)
+    plt.xlabel("Iterations")
+    plt.ylabel("Residue")
+    plt.show()
 
 
+if __name__ == "__main__":
+    main()
 # ---------------------------* OUTPUT *---------------------------------
 # Matrix inverse:
 # [[-0.62860396 -0.23206376 -0.10297909]
