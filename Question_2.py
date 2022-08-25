@@ -25,20 +25,22 @@ def main():
     print("Gauss-Seidel: x = {}".format(r))
 
     # ----------------------* inverse of Amatrix using Jacobi, Gauss-Seidel and Conjugate Gradient *------------------
-    b1 = [1, 0, 0, 0, 0, 0]
-    b2 = [0, 1, 0, 0, 0, 0]
-    b3 = [0, 0, 1, 0, 0, 0]
-    b4 = [0, 0, 0, 1, 0, 0]
-    b5 = [0, 0, 0, 0, 1, 0]
-    b6 = [0, 0, 0, 0, 0, 1]
+    b = [
+        [1, 0, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 1, 0, 0],
+        [0, 0, 0, 0, 1, 0],
+        [0, 0, 0, 0, 0, 1],
+    ]
 
     # ------------------------* Jacobi *------------------------------
-    jx1, iterj, resigj = jacobi(Amatrix, b1, 1e-4)
-    jx2 = jacobi(Amatrix, b2, 1e-4)[0]
-    jx3 = jacobi(Amatrix, b3, 1e-4)[0]
-    jx4 = jacobi(Amatrix, b4, 1e-4)[0]
-    jx5 = jacobi(Amatrix, b5, 1e-4)[0]
-    jx6 = jacobi(Amatrix, b6, 1e-4)[0]
+    jx1, iterj, resigj = jacobi(Amatrix, b[0], 1e-4)
+    jx2 = jacobi(Amatrix, b[1], 1e-4)[0]
+    jx3 = jacobi(Amatrix, b[2], 1e-4)[0]
+    jx4 = jacobi(Amatrix, b[3], 1e-4)[0]
+    jx5 = jacobi(Amatrix, b[4], 1e-4)[0]
+    jx6 = jacobi(Amatrix, b[5], 1e-4)[0]
 
     tempMat = [jx1, jx2, jx3, jx4, jx5, jx6]
     matInvj = list(zip(*tempMat))  # Inverse of Amatrix using Jacobi
@@ -46,12 +48,12 @@ def main():
     mat_print(matInvj)
 
     # -----------------------* Gauss-Seidel *---------------------------
-    gsx1, itergs, resigs = gauss_seidel(Amatrix, b1, 1e-4)
-    gsx2 = gauss_seidel(Amatrix, b2, 1e-4)[0]
-    gsx3 = gauss_seidel(Amatrix, b3, 1e-4)[0]
-    gsx4 = gauss_seidel(Amatrix, b4, 1e-4)[0]
-    gsx5 = gauss_seidel(Amatrix, b5, 1e-4)[0]
-    gsx6 = gauss_seidel(Amatrix, b6, 1e-4)[0]
+    gsx1, itergs, resigs = gauss_seidel(Amatrix, b[0], 1e-4)
+    gsx2 = gauss_seidel(Amatrix, b[1], 1e-4)[0]
+    gsx3 = gauss_seidel(Amatrix, b[2], 1e-4)[0]
+    gsx4 = gauss_seidel(Amatrix, b[3], 1e-4)[0]
+    gsx5 = gauss_seidel(Amatrix, b[4], 1e-4)[0]
+    gsx6 = gauss_seidel(Amatrix, b[5], 1e-4)[0]
 
     tempMat = [gsx1, gsx2, gsx3, gsx4, gsx5, gsx6]
     matInvgs = list(zip(*tempMat))  # Inverse of Amatrix using Gauss-Seidel
